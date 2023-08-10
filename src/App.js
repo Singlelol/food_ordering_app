@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import Card from "./components/Cart/Card";
+import CardContextProvider from "./store/CartContextProvider";
 
 function App() {
 
@@ -16,13 +17,13 @@ function App() {
   }
 
   return (
-    <React.Fragment>
+    <CardContextProvider>
       {cardIsVisible && <Card onHideCard={hideCardHandler}/>}
       <Header onShowCard={showCarHandler} />
       <main>
         <Meals />
       </main>
-    </React.Fragment>
+    </CardContextProvider>
   );
 };
 
