@@ -13,14 +13,14 @@ const Card = (props) => {
   );
 
   return (
-    <Modal>
+    <Modal onHideCard={props.onHideCard}>
       {cardItems}
       <div className={styles.total}>
         <span>Итого</span>
         <span>49.99</span>
       </div>
       <div className={styles.actions}>
-        <button className={styles["button--alt"]}>Закрыть</button>
+        <button className={styles["button--alt"]} onClick={props.onHideCard}>Закрыть</button>
         <button className={styles.button}>Заказать</button>
       </div>
     </Modal>
