@@ -1,9 +1,10 @@
-import { useContext} from "react";
+import { useContext, useEffect, useState } from "react";
 import CarContext from "../../store/cart-context";
 import CartIcon from "../Cart/CartIcon";
 import styles from "./HeaderCardButton.module.css";
 
 const HeaderCardButton = (props) => {
+  const [isButtonAnimated, setIsButtonAnimated] = useState(false);
 
   const cartContext = useContext(CarContext);
 
@@ -11,8 +12,23 @@ const HeaderCardButton = (props) => {
     return currentValue + item.amount;
   }, 0)
 
+  const buttonClasses = `${styles.button} ${isButtonAnimated ? styles.bump : ''}`;
+
+  useEffect(() => {
+    if(cartContext.items.length === 0) {
+      return;
+    }
+    setIsButtonAnimated(true);
+
+    const timer = setTimeout(() => {setIsButtonAnimated(false)}, 300)
+
+    return () => {
+      clearTimeout(timer);
+    }
+  }, [cartContext.items])
+
   return (
-  <button className={styles.button} onClick={props.onClick}>
+  <button className={buttonClasses} onClick={props.onClick}>
     <span className={styles.icon}>
       <CartIcon />
     </span>
