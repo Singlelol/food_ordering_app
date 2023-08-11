@@ -4,6 +4,7 @@ import sushiImage from "../../assets/sushi.jpg";
 import styles from "./Header.module.css";
 
 const Header = (props) => {
+  console.log("Header")
   return (
   <React.Fragment>
     <header className={styles.header}>

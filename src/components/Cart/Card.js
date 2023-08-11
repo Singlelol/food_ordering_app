@@ -33,7 +33,7 @@ const Card = (props) => {
     ))}
   </ul>
   );
-
+  console.log("Card")
   return (
     <Modal onHideCard={props.onHideCard}>
       {cardItems}
