@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import CartContext from "../../store/cart-context";
 import Modal from "../UI/Modal";
 import CartItem from "./CartItem";
@@ -49,4 +49,4 @@ const Card = (props) => {
   );
 };
 
-export default Card;
+export default React.memo(Card);

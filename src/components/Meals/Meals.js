@@ -2,7 +2,7 @@ import React from "react";
 import MealsList from "./MealsList";
 import PromoText from "./PromoText";
 
-const Meals = (props) => {
+const Meals = () => {
   return (
     <React.Fragment>
       <PromoText />
